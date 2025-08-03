@@ -1,18 +1,46 @@
 [build]
   publish = "."
+  command = "echo 'Static site - no build required'"
 
+[build.environment]
+  NODE_VERSION = "18"
+
+# Security headers for better SEO and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    # Cache static assets
+    Cache-Control = "public, max-age=86400" # 1 day for HTML
+
+# Cache images and assets longer
+[[headers]]
+  for = "/frontloader.co.kr_files/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable" # 1 year
+
+# CSS and JS caching
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Form notifications
 [form]
   [form.settings]
     # Form submission notification settings
     [form.settings.notification]
       # Email notifications for form submissions
       emails = ["ellen201502@gmail.com", "korea2181@gmail.com"]
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"]}
 
 # Form spam protection
 [form-processing]
@@ -25,7 +53,7 @@
   
   # Email template for notifications
   [forms.email]
-    subject = "New inquiry from SPS ENG website"
+    subject = "🚜 New SPS ENG Inquiry - {{ product }} from {{ company }}"
     reply_to = "{{ email }}"
     body = """
     New inquiry received from SPS ENG website:
@@ -42,4 +70,13 @@
     
     ---
     Submitted at: {{ date }}
+    IP Address: {{ ip }}
     """
+
+# Redirects and rewrites
+[[redirects]]
+  from = "/contact-success"
+  to = "/thank-you"
+  status = 301
+
+# Static site - no fallback redirects needed
