@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 경로 테스트</title>
+    <style>
+        .test-image {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ccc;
+            margin: 10px;
+            object-fit: contain;
+        }
+        .error {
+            color: red;
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>이미지 경로 테스트</h1>
+    
+    <h2>Hero 이미지들</h2>
+    <img src="./frontloader.co.kr_files/891a9a70f394c2685aba2db28960c516.JPG" alt="Hero 1" class="test-image">
+    <img src="./frontloader.co.kr_files/354176551378657fcbf31b8c431a3d13.JPG" alt="Hero 2" class="test-image">
+    <img src="./frontloader.co.kr_files/5c1d16366d0c3ebd2a87040a893e64dc.jpg" alt="Hero 3" class="test-image">
+    
+    <h2>로고</h2>
+    <img src="./frontloader.co.kr_files/373868f2bd2ac36f87a01ad3281fa55f.png" alt="Logo" class="test-image">
+    
+    <h2>제품 이미지들</h2>
+    <img src="./frontloader.co.kr_files/3d7fffdddaa42a58c340bc734e3f75f1.png" alt="Front Loader" class="test-image">
+    <img src="./frontloader.co.kr_files/add460cd64d52b9d0f67bfab083ea199.png" alt="Backhoe" class="test-image">
+    <img src="./frontloader.co.kr_files/3d89d5f3f392451389e54e1a514255e7.png" alt="Crane" class="test-image">
+    
+    <script>
+        // 이미지 로드 상태 확인
+        document.querySelectorAll('.test-image').forEach(img => {
+            img.onload = () => {
+                console.log('✅ 로드 성공:', img.src);
+            };
+            
+            img.onerror = () => {
+                console.error('❌ 로드 실패:', img.src);
+                img.classList.add('error');
+                img.alt = '이미지 로드 실패: ' + img.src;
+            };
+        });
+    </script>
+</body>
+</html>

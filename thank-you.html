@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - SPS ENG</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .thank-you-content {
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .thank-you-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .thank-you-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-2px);
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="thank-you-content">
+            <h1 class="thank-you-title">감사합니다!</h1>
+            <p class="thank-you-message">
+                문의해 주셔서 감사합니다.<br>
+                24시간 이내에 담당자가 연락드리겠습니다.<br>
+                <br>
+                Thank you for your inquiry!<br>
+                We will contact you within 24 hours.
+            </p>
+            <a href="/" class="back-button">홈으로 돌아가기 / Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

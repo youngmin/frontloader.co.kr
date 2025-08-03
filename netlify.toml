@@ -1,0 +1,45 @@
+[build]
+  publish = "."
+
+[form]
+  [form.settings]
+    # Form submission notification settings
+    [form.settings.notification]
+      # Email notifications for form submissions
+      emails = ["ellen201502@gmail.com", "korea2181@gmail.com"]
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["admin"]}
+
+# Form spam protection
+[form-processing]
+  honeypot = "bot-field"
+  
+# Contact form specific settings  
+[[forms]]
+  name = "contact"
+  action = "/thank-you"
+  
+  # Email template for notifications
+  [forms.email]
+    subject = "New inquiry from SPS ENG website"
+    reply_to = "{{ email }}"
+    body = """
+    New inquiry received from SPS ENG website:
+    
+    Company: {{ company }}
+    Contact Person: {{ contact-person }}
+    Email: {{ email }}
+    Phone: {{ phone }}
+    Product Interest: {{ product }}
+    Country/Region: {{ country }}
+    
+    Message:
+    {{ message }}
+    
+    ---
+    Submitted at: {{ date }}
+    """
