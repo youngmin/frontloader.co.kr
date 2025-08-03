@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - SPS ENG</title>
+    <title>Thank You - SPS ENG Farm Implement Manufacturer</title>
+    <meta name="description" content="Thank you for contacting SPS ENG. We will respond to your inquiry within 24 hours.">
+    <link rel="icon" href="./frontloader.co.kr_files/373868f2bd2ac36f87a01ad3281fa55f.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <style>
         .thank-you-container {
@@ -11,58 +13,207 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #2563eb 100%);
             color: white;
             text-align: center;
             padding: 2rem;
+            position: relative;
+            overflow: hidden;
         }
+        
+        .thank-you-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('./frontloader.co.kr_files/891a9a70f394c2685aba2db28960c516.JPG');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
         .thank-you-content {
-            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 3rem;
-            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            padding: 4rem 3rem;
+            border-radius: 25px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
-        .thank-you-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        .thank-you-message {
-            font-size: 1.2rem;
+        
+        .logo {
             margin-bottom: 2rem;
-            line-height: 1.6;
         }
+        
+        .logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        .thank-you-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #60a5fa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 2rem;
+        }
+        
+        .thank-you-message {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            color: #e2e8f0;
+        }
+        
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+        }
+        
+        .contact-info h4 {
+            color: #60a5fa;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
         .back-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: #2563eb;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             color: white;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 50px;
             font-weight: 600;
-            transition: transform 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
         }
+        
         .back-button:hover {
-            transform: translateY(-2px);
-            background: #1d4ed8;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+        }
+        
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem 2.5rem;
+            background: transparent;
+            border: 2px solid #60a5fa;
+            color: #60a5fa;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            background: #60a5fa;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-content {
+                padding: 2.5rem 1.5rem;
+                margin: 1rem;
+            }
+            
+            .thank-you-title {
+                font-size: 2.25rem;
+            }
+            
+            .thank-you-message {
+                font-size: 1.1rem;
+            }
+            
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-button,
+            .contact-button {
+                width: 100%;
+                justify-content: center;
+                max-width: 280px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="thank-you-container">
         <div class="thank-you-content">
-            <h1 class="thank-you-title">감사합니다!</h1>
+            <div class="logo">
+                <img src="./frontloader.co.kr_files/373868f2bd2ac36f87a01ad3281fa55f.png" alt="SPS ENG Logo">
+            </div>
+            
+            <h1 class="thank-you-title">Thank You!</h1>
+            <div class="company-name">SPS ENG - Farm Implement Manufacturer</div>
+            
             <p class="thank-you-message">
-                문의해 주셔서 감사합니다.<br>
-                24시간 이내에 담당자가 연락드리겠습니다.<br>
-                <br>
-                Thank you for your inquiry!<br>
-                We will contact you within 24 hours.
+                Your inquiry has been successfully submitted.<br>
+                We appreciate your interest in our farm implements and will respond within 24 hours with detailed information and pricing.
             </p>
-            <a href="/" class="back-button">홈으로 돌아가기 / Back to Home</a>
+            
+            <div class="contact-info">
+                <h4>Our Response Promise:</h4>
+                <p>✓ Technical specifications and pricing within 24 hours<br>
+                ✓ Custom solutions consultation available<br>
+                ✓ Global shipping and support services</p>
+            </div>
+            
+            <div class="actions">
+                <a href="/" class="back-button">
+                    <span>← Back to Home</span>
+                </a>
+                <a href="tel:+821021817788" class="contact-button">
+                    <span>📞 Call Us Now</span>
+                </a>
+            </div>
         </div>
     </div>
+    
+    <script>
+        // Auto redirect after 10 seconds (optional)
+        setTimeout(() => {
+            const redirectPrompt = confirm('Would you like to return to the homepage?');
+            if (redirectPrompt) {
+                window.location.href = '/';
+            }
+        }, 10000);
+    </script>
 </body>
 </html>
